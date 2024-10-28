@@ -79,7 +79,7 @@ const Gameboard = ({ navigation, route }) => {
      // Nollaa finalMessage, kun painiketta painetaan
      setFinalMessage("");
     if (nbrOfThrowsLeft > 0) {
-      setGameStarted(true); // Merkitse peli käynnistyneeksi
+      setGameStarted(true); // Merkitsee peli käynnistyneeksi
       setShowDices(true);
       setPointsAdded(new Array(MAX_SPOT).fill(false));
 
@@ -121,8 +121,8 @@ const Gameboard = ({ navigation, route }) => {
 
   const startNewGame = () => {
     resetGame();
-    setResetGameVisible(false); // Piilota uusi peli -nappi
-    setGameStarted(false); // Merkitse peli ei-käynnistetyksi
+    setResetGameVisible(false); // Piilotaa uusi peli -nappi
+    setGameStarted(false); // Merkitsee peli ei-käynnistetyksi
   };
 
   const selectDicePoints = (i) => {
@@ -160,7 +160,7 @@ const Gameboard = ({ navigation, route }) => {
     }
   };
 
-  // Tallenna pelaajan pisteet
+  // Tallentaa pelaajan pisteet
   const savePlayerPoints = async () => {
     const total = interimPoints.reduce((total, points) => total + points, 0);
     const bonus = total >= BONUS_POINTS_LIMIT ? BONUS_POINTS : 0; // Tarkastaa bonuksen
@@ -174,9 +174,9 @@ const Gameboard = ({ navigation, route }) => {
       time: new Date().toLocaleTimeString(),
       points: finalPoints, // Todelliset pisteet
     };
-    setResetGameVisible(true); // Näytä uusi peli -nappi
-    setGameOver(true); // Aseta pelin loppuneeksi
-    setTotalPoints(finalPoints); // Aseta kokonaispisteet
+    setResetGameVisible(true); // Näytää uusi peli -nappi
+    setGameOver(true); // Asetaa pelin loppuneeksi
+    setTotalPoints(finalPoints); // Asetaa kokonaispisteet
     try {
       const newScore = [...scores, playerPoints];
       const jsonValue = JSON.stringify(newScore);
